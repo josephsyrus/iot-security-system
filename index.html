@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IoT Security System Logs</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <header class="header">
+        <div class="header-title-group">
+          <div class="icon-box">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <div>
+            <h1 class="title">IoT Security System</h1>
+            <p class="subtitle">Real-time access and intrusion monitoring</p>
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-dot-container">
+            <span class="live-dot-ping"></span>
+            <span class="live-dot-core"></span>
+          </div>
+          <span class="live-text">Live Connection</span>
+        </div>
+      </header>
+
+      <main class="main-card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <i data-lucide="list-video"></i>
+            Activity Logs
+          </h2>
+          <div class="last-updated" id="lastUpdatedContainer">
+            <i data-lucide="clock"></i>
+            <span id="lastUpdated">Initializing...</span>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Identity / Name</th>
+                <th class="center">Card UID</th>
+                <th class="right">Event Status</th>
+              </tr>
+            </thead>
+            <tbody id="logTable"></tbody>
+          </table>
+
+          <div id="loadingState" class="overlay-state">
+            <i data-lucide="loader-2" class="spinner"></i>
+            <p class="state-text-main" id="loadingText">
+              Fetching secure logs...
+            </p>
+          </div>
+
+          <div
+            id="emptyState"
+            class="overlay-state hidden"
+            style="background: transparent; backdrop-filter: none; z-index: 5"
+          >
+            <i data-lucide="database" class="empty-icon"></i>
+            <p class="state-text-main">No logs found</p>
+            <p class="state-text-sub">
+              System is waiting for initial activity.
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <i data-lucide="lock"></i> Encrypted Local Dashboard
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
